@@ -2,10 +2,10 @@
 
 Please execute below command after checkout my branch : 
 
-1.composer update
-2.php artisan migrate
-3.php artisan storage:link
-4.php artisan db:seed --class= CreateUserSeeder
+-1.composer update
+-2.php artisan migrate
+-3.php artisan storage:link
+-4.php artisan db:seed --class= CreateUserSeeder
 
 Test APIs
 -> Import Postman collection from Github.
