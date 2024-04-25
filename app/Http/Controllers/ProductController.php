@@ -10,6 +10,7 @@ use Exception;
 use Log;
 use Validator;
 use Str;
+use JWTAuth;
 
 class ProductController extends Controller
 {
@@ -394,21 +395,21 @@ class ProductController extends Controller
         return $this->json_data();
     }
 
-    public function useLogin(Request $request)
+    public function generateToken(Request $request)
     {
         try {
             $credentials = array('email' => "test@gmail.com", 'password' => "demo@123");
             if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json([
-                    'status' => 401,
-                    'message' => 'Login credentials are invalid.',
-                ], 400);
+                $this->data['status'] = 400;
+                $this->data['message'] = 'Login credentials are invalid.';
             } else {
                 return response()->json(['status' => 200, 'message' => "success", "data" => array('token' => $token)], 200);
             }
         } catch (Exception $e) {
-            log::error('saveUser', ['message' => $e->getMessage(), "\nTraceAsString" => $e->getTraceAsString()]);
-            return response()->json(['status' => 400, 'message' => Config::get('constant.SOMETHING_WENT_WRONG')], 200);
+            log::error('generateToken', ['message' => $e->getMessage(), "\nTraceAsString" => $e->getTraceAsString()]);
+            $this->data['status'] = 400;
+            $this->data['message'] = 'Something went wrong.';
         }
+        return $this->json_data();
     }
 }

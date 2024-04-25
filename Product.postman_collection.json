@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "ae8a78f2-cdd5-4c35-b2d1-1270f5e25ead",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14507123"
+	},
+	"item": [
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "update-image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "remove_images[]",
+									"value": "14",
+									"type": "text"
+								},
+								{
+									"key": "remove_images[]",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/update-image",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"update-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discount",
+			"item": [
+				{
+					"name": "Add/update Discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":3,\r\n    \"product_id\":2,\r\n    \"type\" : \"amount\",\r\n    \"discount\":70\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/discount",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"discount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/discounts?page=1&limit=10",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"discounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/delete-discount/3",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"delete-discount",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Add-product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "sofa red wooden",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is a full product description",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "images[]",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/Screenshot_19.png"
+						},
+						{
+							"key": "images[]",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/Screenshot_18.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASEURL}}/add-product",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"add-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/products?page=1&limit=10",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/remove/3",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"remove",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 3,\r\n    \"name\": \"sofa red wooden\",\r\n    \"description\": \"This is a full product description\",\r\n    \"price\": 150,\r\n    \"active\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASEURL}}/edit-product",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"edit-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/token",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const url = pm.request.url.getPath();\r",
+					"if('/wishlist/api/public/api/token' == url) {\r",
+					"    const response = pm.response.json();\r",
+					"    if(typeof(response.data.token) != \"undefined\" && response.data.token) {\r",
+					"        const token = response.data.token;\r",
+					"        pm.collectionVariables.set(\"token\", token);\r",
+					"    }\r",
+					"}\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "http://localhost/product-page-test/public/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvcml2eW8uY29tXC93aXNobGlzdFwvYXBpXC9wdWJsaWNcL2FwaVwvdG9rZW4iLCJpYXQiOjE3MTQwMjAzMDIsImV4cCI6MTcxNDcxMTUwMiwibmJmIjoxNzE0MDIwMzAyLCJqdGkiOiJhSmNTdzhaTjJaeHY5cmhyIiwic3ViIjo3LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TlxkPCrKSoyhSxkdQUwVIfOXuEXPA280WZVJg0Ne1YQ",
+			"type": "string"
+		}
+	]
+}
