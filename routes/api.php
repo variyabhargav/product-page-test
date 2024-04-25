@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('token', [ProductController::class, 'generateToken']);
 
-// Route::group(["middleware" => ['jwt.verify']], function () {
+Route::group(["middleware" => ['jwt.verify']], function () {
     Route::get('products', [ProductController::class, 'getProducts']);
     Route::post('add-product', [ProductController::class, 'addProduct']);
     Route::post('edit-product', [ProductController::class, 'updateProduct']);
@@ -32,4 +32,4 @@ Route::get('token', [ProductController::class, 'generateToken']);
     Route::get('discounts', [ProductController::class, 'getDiscounts']);
     Route::post('discount', [ProductController::class, 'addDiscount']);
     Route::get('delete-discount/{discount}', [ProductController::class, 'deleteDiscount']);
-// });
+});
