@@ -16,7 +16,7 @@ Test APIs
 
 API Descriptions :
 
-- token => Fore generate token
+- token => For generate token
 - products => Get all products listings with a response as a sample response. I have also added pagination in this API. By default, it returns first page data if no params(page, limit) exist in the request.
 - add-product => Create product with images. Images are not compulsory.
 - edit-product => Update only product information. The image will not updated using this API. For image update or delete we have another API
